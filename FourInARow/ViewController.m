@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "HostGameViewController.h"
 
 @interface ViewController ()
 
@@ -25,6 +26,9 @@
 }
 
 - (IBAction)hostGame:(id)sender {
+    HostGameViewController *hc = [[HostGameViewController alloc] init];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:hc];
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 - (IBAction)joinGame:(id)sender {
