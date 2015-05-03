@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "HostGameViewController.h"
-#import "JoinGameViewController.h"
+#import "JoinGameTableViewController.h"
 
 @interface ViewController ()
 
@@ -33,7 +33,7 @@
 }
 
 - (IBAction)joinGame:(id)sender {
-    JoinGameViewController *jc = [[JoinGameViewController alloc] init];
+    JoinGameTableViewController *jc = [[JoinGameTableViewController alloc] init];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:jc];
     [self presentViewController:nc animated:YES completion:nil];
 }
