@@ -74,7 +74,7 @@ static NSString *ServiceCell = @"ServiceCell";
         
         // Update Table View
         NSLog(@"Update table with located services");
-        //[self.tableView reloadData];
+        [self.tableView reloadData];
     }
 }
 
@@ -85,7 +85,7 @@ static NSString *ServiceCell = @"ServiceCell";
     if(!moreComing) {
         // Update Table View
         NSLog(@"Update table when services are removed");
-        // [self.tableView reloadData];
+        [self.tableView reloadData];
     }
 }
 
