@@ -10,6 +10,7 @@
 		3E398AB21AF61CE9005AB953 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E398AB11AF61CE9005AB953 /* CFNetwork.framework */; };
 		3E398AB41AF61CF0005AB953 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E398AB31AF61CF0005AB953 /* Security.framework */; };
 		3E398AB71AF6214A005AB953 /* HostGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E398AB61AF6214A005AB953 /* HostGameViewController.m */; };
+		3E398ABB1AF6644A005AB953 /* JoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E398ABA1AF6644A005AB953 /* JoinGameViewController.m */; };
 		3ED303651AF61B7800E3D517 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED303641AF61B7800E3D517 /* main.m */; };
 		3ED303681AF61B7800E3D517 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED303671AF61B7800E3D517 /* AppDelegate.m */; };
 		3ED3036B1AF61B7800E3D517 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED3036A1AF61B7800E3D517 /* ViewController.m */; };
@@ -35,6 +36,8 @@
 		3E398AB31AF61CF0005AB953 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3E398AB51AF6214A005AB953 /* HostGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostGameViewController.h; sourceTree = "<group>"; };
 		3E398AB61AF6214A005AB953 /* HostGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostGameViewController.m; sourceTree = "<group>"; };
+		3E398AB91AF6644A005AB953 /* JoinGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGameViewController.h; sourceTree = "<group>"; };
+		3E398ABA1AF6644A005AB953 /* JoinGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinGameViewController.m; sourceTree = "<group>"; };
 		3ED3035F1AF61B7800E3D517 /* FourInARow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourInARow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED303631AF61B7800E3D517 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3ED303641AF61B7800E3D517 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 				3ED303621AF61B7800E3D517 /* Supporting Files */,
 				3E398AB51AF6214A005AB953 /* HostGameViewController.h */,
 				3E398AB61AF6214A005AB953 /* HostGameViewController.m */,
+				3E398AB91AF6644A005AB953 /* JoinGameViewController.h */,
+				3E398ABA1AF6644A005AB953 /* JoinGameViewController.m */,
 			);
 			path = FourInARow;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 			files = (
 				3ED3036B1AF61B7800E3D517 /* ViewController.m in Sources */,
 				3ED303681AF61B7800E3D517 /* AppDelegate.m in Sources */,
+				3E398ABB1AF6644A005AB953 /* JoinGameViewController.m in Sources */,
 				3E398AB71AF6214A005AB953 /* HostGameViewController.m in Sources */,
 				3ED303651AF61B7800E3D517 /* main.m in Sources */,
 			);
