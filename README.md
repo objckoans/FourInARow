@@ -1,1 +1,1 @@
-# Simple game with Bonjour and CocoaAsyncSocket
+# Bonjour and GCDAsyncSocket
