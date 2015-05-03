@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E398AB21AF61CE9005AB953 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E398AB11AF61CE9005AB953 /* CFNetwork.framework */; };
+		3E398AB41AF61CF0005AB953 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E398AB31AF61CF0005AB953 /* Security.framework */; };
 		3ED303651AF61B7800E3D517 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED303641AF61B7800E3D517 /* main.m */; };
 		3ED303681AF61B7800E3D517 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED303671AF61B7800E3D517 /* AppDelegate.m */; };
 		3ED3036B1AF61B7800E3D517 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED3036A1AF61B7800E3D517 /* ViewController.m */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E398AB11AF61CE9005AB953 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		3E398AB31AF61CF0005AB953 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3ED3035F1AF61B7800E3D517 /* FourInARow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourInARow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED303631AF61B7800E3D517 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3ED303641AF61B7800E3D517 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E398AB41AF61CF0005AB953 /* Security.framework in Frameworks */,
+				3E398AB21AF61CE9005AB953 /* CFNetwork.framework in Frameworks */,
 				8F088C2A088EB9E6E76C93A1 /* libPods-FourInARow.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +135,8 @@
 		ABDB2659B6D88E0811AB5488 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E398AB31AF61CF0005AB953 /* Security.framework */,
+				3E398AB11AF61CE9005AB953 /* CFNetwork.framework */,
 				9446D7EE50B7284908EF1120 /* libPods-FourInARow.a */,
 			);
 			name = Frameworks;

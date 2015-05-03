@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)hostGame:(id)sender;
+- (IBAction)joinGame:(id)sender;
 
 @end
 

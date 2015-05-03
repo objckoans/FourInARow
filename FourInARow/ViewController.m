@@ -24,4 +24,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)hostGame:(id)sender {
+}
+
+- (IBAction)joinGame:(id)sender {
+}
 @end
