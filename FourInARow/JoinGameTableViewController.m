@@ -185,6 +185,17 @@ static NSString *ServiceCell = @"ServiceCell";
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // Fetch service
+    NSNetService *service = [self.services objectAtIndex:[indexPath row]];
+
+    // Resolve service
+    [service setDelegate:self];
+    [service resolveWithTimeout:30.0];
+}
+
 
 /*
 // Override to support conditional editing of the table view.
