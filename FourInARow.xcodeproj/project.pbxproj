@@ -14,6 +14,7 @@
 		3ED303701AF61B7800E3D517 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ED3036F1AF61B7800E3D517 /* Images.xcassets */; };
 		3ED303731AF61B7800E3D517 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ED303711AF61B7800E3D517 /* LaunchScreen.xib */; };
 		3ED3037F1AF61B7800E3D517 /* FourInARowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED3037E1AF61B7800E3D517 /* FourInARowTests.m */; };
+		8F088C2A088EB9E6E76C93A1 /* libPods-FourInARow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9446D7EE50B7284908EF1120 /* libPods-FourInARow.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,9 @@
 		3ED303781AF61B7800E3D517 /* FourInARowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourInARowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED3037D1AF61B7800E3D517 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3ED3037E1AF61B7800E3D517 /* FourInARowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FourInARowTests.m; sourceTree = "<group>"; };
+		4085CA1A53F29B4917515C46 /* Pods-FourInARow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourInARow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FourInARow/Pods-FourInARow.debug.xcconfig"; sourceTree = "<group>"; };
+		9446D7EE50B7284908EF1120 /* libPods-FourInARow.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FourInARow.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E54CF60BFA608E25B9928A19 /* Pods-FourInARow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourInARow.release.xcconfig"; path = "Pods/Target Support Files/Pods-FourInARow/Pods-FourInARow.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F088C2A088EB9E6E76C93A1 /* libPods-FourInARow.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,8 @@
 				3ED303611AF61B7800E3D517 /* FourInARow */,
 				3ED3037B1AF61B7800E3D517 /* FourInARowTests */,
 				3ED303601AF61B7800E3D517 /* Products */,
+				D603BE0DEB6583B3DAB7C641 /* Pods */,
+				ABDB2659B6D88E0811AB5488 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +126,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		ABDB2659B6D88E0811AB5488 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9446D7EE50B7284908EF1120 /* libPods-FourInARow.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D603BE0DEB6583B3DAB7C641 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4085CA1A53F29B4917515C46 /* Pods-FourInARow.debug.xcconfig */,
+				E54CF60BFA608E25B9928A19 /* Pods-FourInARow.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3ED303821AF61B7800E3D517 /* Build configuration list for PBXNativeTarget "FourInARow" */;
 			buildPhases = (
+				667B2626EE35978612A57E3F /* Check Pods Manifest.lock */,
 				3ED3035B1AF61B7800E3D517 /* Sources */,
 				3ED3035C1AF61B7800E3D517 /* Frameworks */,
 				3ED3035D1AF61B7800E3D517 /* Resources */,
+				2A475F9B6B2C7ABF8A61848D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +239,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A475F9B6B2C7ABF8A61848D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FourInARow/Pods-FourInARow-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		667B2626EE35978612A57E3F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3ED3035B1AF61B7800E3D517 /* Sources */ = {
@@ -347,6 +406,7 @@
 		};
 		3ED303831AF61B7800E3D517 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4085CA1A53F29B4917515C46 /* Pods-FourInARow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FourInARow/Info.plist;
@@ -357,6 +417,7 @@
 		};
 		3ED303841AF61B7800E3D517 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E54CF60BFA608E25B9928A19 /* Pods-FourInARow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FourInARow/Info.plist;
@@ -418,6 +479,7 @@
 				3ED303841AF61B7800E3D517 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3ED303851AF61B7800E3D517 /* Build configuration list for PBXNativeTarget "FourInARowTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +488,7 @@
 				3ED303871AF61B7800E3D517 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
