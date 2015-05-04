@@ -8,6 +8,7 @@
 
 #import "HostGameViewController.h"
 #import "CocoaAsyncSocket/GCDAsyncSocket.h"
+#import "Packet.h"
 
 @interface HostGameViewController () <NSNetServiceDelegate, GCDAsyncSocketDelegate>
 
@@ -75,6 +76,12 @@
     
     // Read Data from Socket
     [newSocket readDataToLength:sizeof(uint64_t) withTimeout:-1.0 tag:0];
+    
+    // Testing out our newly created Packet class which carries live data
+    NSString *message = @"This is proof that our Packet class can carry the message";
+    Packet *packet = [[Packet alloc] initWithData:message type:0 action:0];
+    [self sendPacket:packet];
+    
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)socket withError:(NSError *)error {
@@ -84,6 +91,25 @@
         [self.socket setDelegate:nil];
         [self setSocket:nil];
     }
+}
+
+- (void)sendPacket:(Packet *)packet {
+    // Encode packet data
+    NSMutableData *packetData = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:packetData];
+    [archiver encodeObject:packet forKey:@"packet"];
+    [archiver finishEncoding];
+    
+    // Initiaize Buffer
+    NSMutableData *buffer = [[NSMutableData alloc] init];
+    
+    // Fill Buffer
+    uint64_t headerLength = [packetData length];
+    [buffer appendBytes:&headerLength length:sizeof(uint64_t)];
+    [buffer appendBytes:[packetData bytes] length:[packetData length]];
+    
+    // Write Buffer
+    [self.socket writeData:buffer withTimeout:-1.0 tag:0];
 }
 
 @end

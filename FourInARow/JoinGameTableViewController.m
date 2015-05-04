@@ -8,6 +8,7 @@
 
 #import "JoinGameTableViewController.h"
 #import "CocoaAsyncSocket/GCDAsyncSocket.h"
+#import "Packet.h"
 
 static NSString *ServiceCell = @"ServiceCell";
 
@@ -148,6 +149,7 @@ static NSString *ServiceCell = @"ServiceCell";
     
     // Start Reading
     [socket readDataToLength:sizeof(uint64_t) withTimeout:-1.0 tag:0];
+    
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)socket withError:(NSError *)error {
@@ -196,6 +198,33 @@ static NSString *ServiceCell = @"ServiceCell";
     [service resolveWithTimeout:30.0];
 }
 
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
+    if (tag == 0) {
+        uint64_t bodyLength = [self parseHeader:data];
+        [sock readDataToLength:bodyLength withTimeout:-1.0 tag:1];
+    } else if (tag == 1) {
+        // when tag is 1, we know that we have read the complete encoded packet
+        [self parseBody:data];
+        [sock readDataToLength:sizeof(uint64_t) withTimeout:30 tag:0];
+    }
+    
+}
+
+- (uint64_t)parseHeader:(NSData *)data {
+    uint64_t headerLength = 0;
+    memcpy(&headerLength, [data bytes], sizeof(uint64_t));
+    return headerLength;
+}
+
+- (void)parseBody:(NSData *)data {
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    Packet *packet = [unarchiver decodeObjectForKey:@"packet"];
+    [unarchiver finishDecoding];
+    
+    NSLog(@"Packet Data > %@", packet.data);
+    NSLog(@"Packet Type > %i", packet.type);
+    NSLog(@"Packet Action > %i", packet.action);
+}
 
 /*
 // Override to support conditional editing of the table view.
