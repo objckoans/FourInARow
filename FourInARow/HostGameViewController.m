@@ -94,6 +94,7 @@
 }
 
 - (void)sendPacket:(Packet *)packet {
+    NSLog(@"HostGameViewController sendPacket");
     // Encode packet data
     NSMutableData *packetData = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:packetData];

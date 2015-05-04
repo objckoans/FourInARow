@@ -199,6 +199,7 @@ static NSString *ServiceCell = @"ServiceCell";
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
+    NSLog(@"JoinGameTableViewController reading the incoming data");
     if (tag == 0) {
         uint64_t bodyLength = [self parseHeader:data];
         [sock readDataToLength:bodyLength withTimeout:-1.0 tag:1];

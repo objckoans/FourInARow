@@ -15,6 +15,7 @@ NSString * const PacketKeyAction = @"action";
 @implementation Packet
 
 - (id)initWithData:(id)data type:(PacketType)type action:(PacketAction)action {
+    NSLog(@"Packet initWithData:type:action:");
     self = [super init];
     
     if (self) {
