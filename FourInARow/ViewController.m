@@ -10,7 +10,8 @@
 #import "HostGameViewController.h"
 #import "JoinGameTableViewController.h"
 
-@interface ViewController ()
+// make our ViewController conform to HostGameViewControllerDelegate and JoinGameViewControllerDelegate
+@interface ViewController () <HostGameViewControllerDelegate, JoinGameViewControllerDelegate>
 
 @end
 
@@ -28,13 +29,34 @@
 
 - (IBAction)hostGame:(id)sender {
     HostGameViewController *hc = [[HostGameViewController alloc] init];
+    [hc setDelegate:self];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:hc];
     [self presentViewController:nc animated:YES completion:nil];
 }
 
 - (IBAction)joinGame:(id)sender {
     JoinGameTableViewController *jc = [[JoinGameTableViewController alloc] init];
+    [jc setDelegate:self];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:jc];
     [self presentViewController:nc animated:YES completion:nil];
 }
+
+// HostGameViewControllerDelegate methods
+- (void)controller:(HostGameViewController *)controller didHostGameSocket:(GCDAsyncSocket *)socket {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)controllerDidCancelHosting:(HostGameViewController *)controller {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+// JoinGameViewControllerDelegate methods
+- (void)controller:(JoinGameTableViewController *)controller didJoinGameOnSocket:(GCDAsyncSocket *)socket {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)controllerDidCancelJoining:(JoinGameTableViewController *)controller {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
 @end

@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class GCDAsyncSocket;
+@protocol HostGameViewControllerDelegate;
+
 @interface HostGameViewController : UIViewController
 
+@property (weak, nonatomic) id delegate;
 
+@end
 
+@protocol HostGameViewControllerDelegate
+- (void)controller:(HostGameViewController *)controller didHostGameSocket:(GCDAsyncSocket *)socket;
+- (void)controllerDidCancelHosting:(HostGameViewController *)controller;
 @end
