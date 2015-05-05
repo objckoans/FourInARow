@@ -20,6 +20,8 @@
 @implementation HostGameViewController
 
 - (void)cancel:(id)sender {
+    [self.delegate controllerDidCancelHosting:self];
+    [self endBroadcast];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -70,18 +72,21 @@
 // GCDAsyncSocketDelegate methods
 - (void)socket:(GCDAsyncSocket *)socket didAcceptNewSocket:(GCDAsyncSocket *)newSocket {
     NSLog(@"Accepted New Socket from %@:%hu", [newSocket connectedHost], [newSocket connectedPort]);
+    [self.delegate controller:self didHostGameSocket:newSocket];
+    [self endBroadcast];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)endBroadcast {
+    if (self.socket) {
+        [self.socket setDelegate:nil delegateQueue:NULL];
+        [self setSocket:nil];
+    }
     
-    // Socket
-    [self setSocket:newSocket];
-    
-    // Read Data from Socket
-    [newSocket readDataToLength:sizeof(uint64_t) withTimeout:-1.0 tag:0];
-    
-    // Testing out our newly created Packet class which carries live data
-    NSString *message = @"This is proof that our Packet class can carry the message";
-    Packet *packet = [[Packet alloc] initWithData:message type:0 action:0];
-    [self sendPacket:packet];
-    
+    if (self.service) {
+        [self.service setDelegate:nil];
+        [self setService:nil];
+    }
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)socket withError:(NSError *)error {
@@ -111,6 +116,17 @@
     
     // Write Buffer
     [self.socket writeData:buffer withTimeout:-1.0 tag:0];
+}
+
+- (void)dealloc {
+    if (_delegate) {
+        _delegate = nil;
+    }
+    
+    if (_socket) {
+        [_socket setDelegate:nil delegateQueue:NULL];
+        _socket = nil;
+    }
 }
 
 @end
