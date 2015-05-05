@@ -23,8 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Hide disconnectButton
+    // Hide disconnectButton and replayButton
     [self.disconnectButton setHidden:YES];
+    [self.replayButton setHidden:YES];
+    [self.boardView setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
