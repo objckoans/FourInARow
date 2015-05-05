@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E2DF69B1AF8CCEB000507EA /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DF69A1AF8CCEB000507EA /* GameController.m */; };
+		3E2DF69E1AF90C80000507EA /* BoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DF69D1AF90C80000507EA /* BoardCell.m */; };
 		3E398AB21AF61CE9005AB953 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E398AB11AF61CE9005AB953 /* CFNetwork.framework */; };
 		3E398AB41AF61CF0005AB953 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E398AB31AF61CF0005AB953 /* Security.framework */; };
 		3E398AB71AF6214A005AB953 /* HostGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E398AB61AF6214A005AB953 /* HostGameViewController.m */; };
@@ -36,6 +37,8 @@
 /* Begin PBXFileReference section */
 		3E2DF6991AF8CCEB000507EA /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
 		3E2DF69A1AF8CCEB000507EA /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
+		3E2DF69C1AF90C80000507EA /* BoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardCell.h; sourceTree = "<group>"; };
+		3E2DF69D1AF90C80000507EA /* BoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardCell.m; sourceTree = "<group>"; };
 		3E398AB11AF61CE9005AB953 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3E398AB31AF61CF0005AB953 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3E398AB51AF6214A005AB953 /* HostGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostGameViewController.h; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 				3E4FC44D1AF71FEB0036DDC9 /* Packet.m */,
 				3E2DF6991AF8CCEB000507EA /* GameController.h */,
 				3E2DF69A1AF8CCEB000507EA /* GameController.m */,
+				3E2DF69C1AF90C80000507EA /* BoardCell.h */,
+				3E2DF69D1AF90C80000507EA /* BoardCell.m */,
 			);
 			path = FourInARow;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				3ED303651AF61B7800E3D517 /* main.m in Sources */,
 				3E2DF69B1AF8CCEB000507EA /* GameController.m in Sources */,
 				3E398ABE1AF66C37005AB953 /* JoinGameTableViewController.m in Sources */,
+				3E2DF69E1AF90C80000507EA /* BoardCell.m in Sources */,
 				3E4FC44E1AF71FEB0036DDC9 /* Packet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
