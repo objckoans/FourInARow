@@ -48,21 +48,48 @@
                                     <action selector="disconnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dWU-3f-5Fy"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JW5-tU-Hwp">
+                                <rect key="frame" x="160" y="180" width="280" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="c7X-ZW-4IK"/>
+                                    <constraint firstAttribute="height" constant="240" id="stb-iq-XHf"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rme-1T-7LQ">
+                                <rect key="frame" x="472" y="57" width="48" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DvB-lc-foi"/>
+                                    <constraint firstAttribute="width" constant="48" id="Hk1-hB-b0J"/>
+                                </constraints>
+                                <state key="normal" title="Replay">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="replay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dTB-Ru-3I8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="JW5-tU-Hwp" secondAttribute="centerY" id="1bY-PU-W2g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rme-1T-7LQ" secondAttribute="trailing" constant="64" id="7r6-98-hlj"/>
                             <constraint firstItem="qzA-06-ufh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="59" id="EjE-OC-USg"/>
+                            <constraint firstAttribute="centerX" secondItem="JW5-tU-Hwp" secondAttribute="centerX" id="FkE-YA-Hix"/>
                             <constraint firstItem="MSo-JC-62d" firstAttribute="top" secondItem="DCi-bO-B6R" secondAttribute="bottom" constant="75" id="MOX-yU-i11"/>
                             <constraint firstItem="qzA-06-ufh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="XQS-C5-RTH"/>
                             <constraint firstItem="DCi-bO-B6R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="178" id="cCN-VD-ezM"/>
                             <constraint firstAttribute="centerX" secondItem="MSo-JC-62d" secondAttribute="centerX" id="f38-uX-c2B"/>
                             <constraint firstAttribute="centerX" secondItem="DCi-bO-B6R" secondAttribute="centerX" id="iIC-fP-a4r"/>
+                            <constraint firstItem="rme-1T-7LQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="z4p-9m-EoA"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="boardView" destination="JW5-tU-Hwp" id="4Bh-VQ-1eE"/>
                         <outlet property="disconnectButton" destination="qzA-06-ufh" id="npp-8h-csr"/>
                         <outlet property="hostButton" destination="DCi-bO-B6R" id="XQv-Yb-WjU"/>
                         <outlet property="joinButton" destination="MSo-JC-62d" id="O3w-5a-eUD"/>
+                        <outlet property="replayButton" destination="rme-1T-7LQ" id="7Lc-iQ-hMI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

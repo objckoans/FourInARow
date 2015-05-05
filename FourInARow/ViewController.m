@@ -50,6 +50,9 @@
     [self endGame];
 }
 
+- (IBAction)replay:(id)sender {
+}
+
 - (void)startGameWithSocket:(GCDAsyncSocket *)socket {
     self.gameController = [[GameController alloc] initWithSocket:socket];
     [self.gameController setDelegate:self];
