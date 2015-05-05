@@ -41,6 +41,9 @@
         [self.socket setDelegate:nil];
         [self setSocket:nil];
     }
+    
+    // Notify delegate
+    [self.delegate controllerDidDisconnect:self];
 
 }
 

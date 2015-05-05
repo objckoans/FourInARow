@@ -9,9 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @class GCDAsyncSocket;
+@protocol GameControllerDelegate;
 
 @interface GameController : NSObject
 
+@property (weak, nonatomic) id delegate;
+
 - (id)initWithSocket:(GCDAsyncSocket *)socket;
+
+@end
+
+@protocol GameControllerDelegate <NSObject>
+
+- (void)controllerDidDisconnect:(GameController *)controller;
 
 @end
