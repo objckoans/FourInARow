@@ -45,6 +45,7 @@ static NSString *ServiceCell = @"ServiceCell";
 }
 
 - (void)cancel:(id)sender {
+    [self.delegate controllerDidCancelJoining:self];
     [self stopBrowsing];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -146,10 +147,10 @@ static NSString *ServiceCell = @"ServiceCell";
 // GCDAsyncSocketDelegate methods
 - (void)socket:(GCDAsyncSocket *)socket didConnectToHost:(NSString *)host port:(UInt16)port {
     NSLog(@"Socket Did Connect to Host: %@ Port: %hu", host, port);
-    
-    // Start Reading
-    [socket readDataToLength:sizeof(uint64_t) withTimeout:-1.0 tag:0];
-    
+
+    [self.delegate controller:self didJoinGameOnSocket:socket];
+    [self stopBrowsing];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)socket withError:(NSError *)error {
@@ -227,48 +228,15 @@ static NSString *ServiceCell = @"ServiceCell";
     NSLog(@"Packet Action > %i", packet.action);
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)dealloc {
+    if (_delegate) {
+        _delegate = nil;
+    }
+    
+    if (_socket) {
+        [_socket setDelegate:nil delegateQueue:NULL];
+        _socket = nil;
+    }
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
