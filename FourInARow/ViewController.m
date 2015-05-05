@@ -7,21 +7,59 @@
 //
 
 #import "ViewController.h"
+
+#import "BoardCell.h"
 #import "GameController.h"
 #import "HostGameViewController.h"
 #import "JoinGameTableViewController.h"
+
+#define kMatrixWidth 7
+#define kMatrixHeight 6
 
 // make our ViewController conform to HostGameViewControllerDelegate and JoinGameViewControllerDelegate
 @interface ViewController () <GameControllerDelegate, HostGameViewControllerDelegate, JoinGameViewControllerDelegate>
 
 @property (strong, nonatomic) GameController *gameController;
 
+@property (strong, nonatomic) NSArray *board;
+@property (strong, nonatomic) NSMutableArray *matrix;
+
 @end
 
 @implementation ViewController
 
 - (void)resetGame {
+    [self.replayButton setHidden:YES];
     
+    CGSize size = self.boardView.frame.size;
+    CGFloat cellWidth = floorf(size.width / kMatrixWidth);
+    CGFloat cellHeight = floorf(size.height / kMatrixHeight);
+    NSMutableArray *buffer = [[NSMutableArray alloc] initWithCapacity:kMatrixWidth];
+    
+    for (int i = 0; i < kMatrixWidth; i++) {
+        NSMutableArray *column = [[NSMutableArray alloc] initWithCapacity:kMatrixHeight];
+        
+        for (int j = 0; j < kMatrixHeight; j++) {
+            CGRect frame = CGRectMake(i * cellWidth, (size.height - ((j + 1) * cellHeight)), cellWidth, cellHeight);
+            BoardCell *cell = [[BoardCell alloc] initWithFrame:frame];
+            [cell setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+            [self.boardView addSubview:cell];
+            [column addObject:cell];
+        }
+        
+        [buffer addObject:column];
+    }
+    
+    // Initialize board
+    self.board = [[NSArray alloc] initWithArray:buffer];
+    
+    // Initialize matrix
+    self.matrix = [[NSMutableArray alloc] initWithCapacity:kMatrixWidth];
+    
+    for (int i = 0; i < kMatrixWidth; i++) {
+        NSMutableArray *column = [[NSMutableArray alloc] initWithCapacity:kMatrixHeight];
+        [self.matrix addObject:column];
+    }
 }
 
 - (void)setupView {
