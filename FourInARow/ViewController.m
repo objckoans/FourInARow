@@ -19,6 +19,7 @@
 // make our ViewController conform to HostGameViewControllerDelegate and JoinGameViewControllerDelegate
 @interface ViewController () <GameControllerDelegate, HostGameViewControllerDelegate, JoinGameViewControllerDelegate>
 
+@property (assign, nonatomic) GameState gameState;
 @property (strong, nonatomic) GameController *gameController;
 
 @property (strong, nonatomic) NSArray *board;
