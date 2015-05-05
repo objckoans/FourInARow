@@ -28,6 +28,10 @@
 
 @implementation ViewController
 
+- (void)addDiscToColumn:(UITapGestureRecognizer *)tgr {
+    
+}
+
 - (void)resetGame {
     [self.replayButton setHidden:YES];
     
@@ -70,6 +74,10 @@
     [self.replayButton setHidden:YES];
     [self.boardView setHidden:YES];
     [self.gameStateLabel setHidden:YES];
+    
+    // Add tap gesture recognizer
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addDiscToColumn:)];
+    [self.boardView addGestureRecognizer:tgr];
 }
 
 - (void)viewDidLoad {
