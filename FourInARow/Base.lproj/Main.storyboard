@@ -69,6 +69,16 @@
                                     <action selector="replay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dTB-Ru-3I8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQx-vi-eMf">
+                                <rect key="frame" x="120" y="434" width="360" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Lbc-ll-bXf"/>
+                                    <constraint firstAttribute="width" constant="360" id="a5t-z2-ago"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -76,17 +86,20 @@
                             <constraint firstAttribute="trailingMargin" secondItem="rme-1T-7LQ" secondAttribute="trailing" constant="64" id="7r6-98-hlj"/>
                             <constraint firstItem="qzA-06-ufh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="59" id="EjE-OC-USg"/>
                             <constraint firstAttribute="centerX" secondItem="JW5-tU-Hwp" secondAttribute="centerX" id="FkE-YA-Hix"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PQx-vi-eMf" secondAttribute="bottom" constant="126" id="JXb-oN-1wj"/>
                             <constraint firstItem="MSo-JC-62d" firstAttribute="top" secondItem="DCi-bO-B6R" secondAttribute="bottom" constant="75" id="MOX-yU-i11"/>
                             <constraint firstItem="qzA-06-ufh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="XQS-C5-RTH"/>
                             <constraint firstItem="DCi-bO-B6R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="178" id="cCN-VD-ezM"/>
                             <constraint firstAttribute="centerX" secondItem="MSo-JC-62d" secondAttribute="centerX" id="f38-uX-c2B"/>
                             <constraint firstAttribute="centerX" secondItem="DCi-bO-B6R" secondAttribute="centerX" id="iIC-fP-a4r"/>
+                            <constraint firstAttribute="centerX" secondItem="PQx-vi-eMf" secondAttribute="centerX" id="rvp-LO-kDG"/>
                             <constraint firstItem="rme-1T-7LQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="z4p-9m-EoA"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="boardView" destination="JW5-tU-Hwp" id="4Bh-VQ-1eE"/>
                         <outlet property="disconnectButton" destination="qzA-06-ufh" id="npp-8h-csr"/>
+                        <outlet property="gameStateLabel" destination="PQx-vi-eMf" id="an7-cM-Hkv"/>
                         <outlet property="hostButton" destination="DCi-bO-B6R" id="XQv-Yb-WjU"/>
                         <outlet property="joinButton" destination="MSo-JC-62d" id="O3w-5a-eUD"/>
                         <outlet property="replayButton" destination="rme-1T-7LQ" id="7Lc-iQ-hMI"/>

@@ -20,5 +20,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *joinButton;
 @property (strong, nonatomic) IBOutlet UIButton *disconnectButton;
 @property (strong, nonatomic) IBOutlet UIButton *replayButton;
+@property (strong, nonatomic) IBOutlet UILabel *gameStateLabel;
 
 @end
