@@ -149,19 +149,23 @@
     [self.gameController setDelegate:self];
     
     // Hide or Show buttons
+    [self.boardView setHidden:NO];
     [self.hostButton setHidden:YES];
     [self.joinButton setHidden:YES];
     [self.disconnectButton setHidden:NO];
+    [self.gameStateLabel setHidden:NO];
 }
 
 - (void)endGame {
     [self.gameController setDelegate:nil];
     [self setGameController:nil];
     
-    // Hide or Show buttons
+    // Hide or Show
+    [self.boardView setHidden:YES];
     [self.hostButton setHidden:NO];
     [self.joinButton setHidden:NO];
     [self.disconnectButton setHidden:YES];
+    [self.gameStateLabel setHidden:YES];
 }
 
 // HostGameViewControllerDelegate methods
