@@ -7,11 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "GameController.h"
 #import "HostGameViewController.h"
 #import "JoinGameTableViewController.h"
 
 // make our ViewController conform to HostGameViewControllerDelegate and JoinGameViewControllerDelegate
-@interface ViewController () <HostGameViewControllerDelegate, JoinGameViewControllerDelegate>
+@interface ViewController () <GameControllerDelegate, HostGameViewControllerDelegate, JoinGameViewControllerDelegate>
+
+@property (strong, nonatomic) GameController *gameController;
 
 @end
 
@@ -19,7 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    // Hide disconnectButton
+    [self.disconnectButton setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,9 +46,34 @@
     [self presentViewController:nc animated:YES completion:nil];
 }
 
+- (IBAction)disconnect:(id)sender {
+    [self endGame];
+}
+
+- (void)startGameWithSocket:(GCDAsyncSocket *)socket {
+    self.gameController = [[GameController alloc] initWithSocket:socket];
+    [self.gameController setDelegate:self];
+    
+    // Hide or Show buttons
+    [self.hostButton setHidden:YES];
+    [self.joinButton setHidden:YES];
+    [self.disconnectButton setHidden:NO];
+}
+
+- (void)endGame {
+    [self.gameController setDelegate:nil];
+    [self setGameController:nil];
+    
+    // Hide or Show buttons
+    [self.hostButton setHidden:NO];
+    [self.joinButton setHidden:NO];
+    [self.disconnectButton setHidden:YES];
+}
+
 // HostGameViewControllerDelegate methods
 - (void)controller:(HostGameViewController *)controller didHostGameSocket:(GCDAsyncSocket *)socket {
     NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self startGameWithSocket:socket];
 }
 
 - (void)controllerDidCancelHosting:(HostGameViewController *)controller {
@@ -53,10 +83,17 @@
 // JoinGameViewControllerDelegate methods
 - (void)controller:(JoinGameTableViewController *)controller didJoinGameOnSocket:(GCDAsyncSocket *)socket {
     NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self startGameWithSocket:socket];
 }
 
 - (void)controllerDidCancelJoining:(JoinGameTableViewController *)controller {
     NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+// GameControllerDelegate methods
+- (void)controllerDidDisconnect:(GameController *)controller {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self endGame];
 }
 
 @end

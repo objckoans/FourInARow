@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -34,15 +35,35 @@
                                     <action selector="joinGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ohc-dK-kmd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzA-06-ufh">
+                                <rect key="frame" x="75" y="57" width="78" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RDF-Sg-Yhr"/>
+                                    <constraint firstAttribute="width" constant="78" id="TmR-dR-0OP"/>
+                                </constraints>
+                                <state key="normal" title="Disconnect">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="disconnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dWU-3f-5Fy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="qzA-06-ufh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="59" id="EjE-OC-USg"/>
                             <constraint firstItem="MSo-JC-62d" firstAttribute="top" secondItem="DCi-bO-B6R" secondAttribute="bottom" constant="75" id="MOX-yU-i11"/>
+                            <constraint firstItem="qzA-06-ufh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="XQS-C5-RTH"/>
                             <constraint firstItem="DCi-bO-B6R" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="178" id="cCN-VD-ezM"/>
                             <constraint firstAttribute="centerX" secondItem="MSo-JC-62d" secondAttribute="centerX" id="f38-uX-c2B"/>
                             <constraint firstAttribute="centerX" secondItem="DCi-bO-B6R" secondAttribute="centerX" id="iIC-fP-a4r"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="disconnectButton" destination="qzA-06-ufh" id="npp-8h-csr"/>
+                        <outlet property="hostButton" destination="DCi-bO-B6R" id="XQv-Yb-WjU"/>
+                        <outlet property="joinButton" destination="MSo-JC-62d" id="O3w-5a-eUD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
