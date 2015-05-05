@@ -17,6 +17,8 @@
 
 - (id)initWithSocket:(GCDAsyncSocket *)socket;
 
+- (void)testConnection;
+
 @end
 
 @protocol GameControllerDelegate <NSObject>

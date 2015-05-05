@@ -74,6 +74,9 @@
 - (void)controller:(HostGameViewController *)controller didHostGameSocket:(GCDAsyncSocket *)socket {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     [self startGameWithSocket:socket];
+    
+    // Let's test our connection
+    [self.gameController testConnection];
 }
 
 - (void)controllerDidCancelHosting:(HostGameViewController *)controller {

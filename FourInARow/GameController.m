@@ -21,6 +21,15 @@
 
 @implementation GameController
 
+- (void)testConnection {
+    // Create packet
+    NSString *message = @"Testing our connection :-)";
+    Packet *packet = [[Packet alloc] initWithData:message type:0 action:0];
+    
+    // Send packet
+    [self sendPacket:packet];
+}
+
 - (id)initWithSocket:(GCDAsyncSocket *)socket {
     self = [super init];
     
