@@ -29,8 +29,38 @@
 
 @implementation ViewController
 
-- (void)addDiscToColumn:(UITapGestureRecognizer *)tgr {
+- (void)addDiscToColumn:(NSInteger)column withType:(BoardCellType)cellType {
+    // Update Matrix
+    NSMutableArray *columnArray = [self.matrix objectAtIndex:column];
+    [columnArray addObject:@(cellType)];
     
+    // Update Cells
+    BoardCell *cell = [[self.board objectAtIndex:column] objectAtIndex:([columnArray count] - 1)];
+    [cell setCellType:cellType];
+}
+
+// Infer the column based on coordinates of `point`
+- (NSInteger)columnForPoint:(CGPoint)point {
+    return floorf(point.x / floorf(self.boardView.frame.size.width / kMatrixWidth));
+}
+
+- (void)addDiscToColumn:(UITapGestureRecognizer *)tgr {
+    if (self.gameState >= GameStateIWin) {
+        // notify players
+    } else if (self.gameState != GameStateMyTurn) {
+        // not your turn (not current player's turn)
+        NSString *message = NSLocalizedString(@"It's not your turn", nil);
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                            message:message
+                                                           delegate:nil
+                                                  cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                                  otherButtonTitles:nil, nil];
+        [alertView show];
+    } else {
+        // update game state, send packet, notify players if some one has won the game
+        NSInteger column = [self columnForPoint:[tgr locationInView:tgr.view]];
+        [self addDiscToColumn:column withType:BoardCellTypeMine];
+    }
 }
 
 - (void)resetGame {
