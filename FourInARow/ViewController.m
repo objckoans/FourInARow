@@ -20,13 +20,25 @@
 
 @implementation ViewController
 
+- (void)resetGame {
+    
+}
+
+- (void)setupView {
+    [self resetGame];
+    
+    // configure subviews
+    [self.disconnectButton setHidden:YES];
+    [self.replayButton setHidden:YES];
+    [self.boardView setHidden:YES];
+    [self.gameStateLabel setHidden:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // Hide disconnectButton and replayButton
-    [self.disconnectButton setHidden:YES];
-    [self.replayButton setHidden:YES];
-    [self.boardView setHidden:YES];
+    [self setupView];
 }
 
 - (void)didReceiveMemoryWarning {
